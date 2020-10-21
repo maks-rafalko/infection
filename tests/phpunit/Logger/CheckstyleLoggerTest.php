@@ -39,7 +39,7 @@ use Infection\Logger\CheckstyleLogger;
 use Infection\Metrics\MetricsCalculator;
 use PHPUnit\Framework\TestCase;
 
-class CheckstyleLoggerTest extends TestCase
+final class CheckstyleLoggerTest extends TestCase
 {
     use CreateMetricsCalculator;
 
@@ -71,8 +71,8 @@ XML
 <?xml version="1.0"?>
 <checkstyle version="6.5">
   <file name="foo/bar">
-    <error line="9" message="--- Original&#10;+++ New&#10;@@ @@&#10;&#10;- echo 'original';&#10;+ echo 'escaped#1';&#10;" severity="warning" source="PregQuote"/>
-    <error line="10" message="--- Original&#10;+++ New&#10;@@ @@&#10;&#10;- echo 'original';&#10;+ echo 'escaped#0';&#10;" severity="warning" source="For_"/>
+    <error line="9" message="Escaped Mutant:&#10;&#10;```diff&#10;--- Original&#10;+++ New&#10;@@ @@&#10;&#10;- echo 'original';&#10;+ echo 'escaped#1';&#10;&#10;```" severity="warning" source="PregQuote"/>
+    <error line="10" message="Escaped Mutant:&#10;&#10;```diff&#10;--- Original&#10;+++ New&#10;@@ @@&#10;&#10;- echo 'original';&#10;+ echo 'escaped#0';&#10;&#10;```" severity="warning" source="For_"/>
   </file>
 </checkstyle>
 XML

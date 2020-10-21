@@ -69,7 +69,7 @@ final class TestLocationBucketSorterTest extends TestCase
         $this->assertSame([$testLocation], $sortedTestLocations);
     }
 
-    public function te1st_it_detects_precision_boundary(): void
+    public function test_it_detects_precision_boundary(): void
     {
         $testLocations = [
             new TestLocation('', '', 0.124),
@@ -90,7 +90,7 @@ final class TestLocationBucketSorterTest extends TestCase
         $this->assertSame($testLocations, $sortedTestLocations);
     }
 
-    public function te1st_it_detects_second_precision_boundary(): void
+    public function test_it_detects_second_precision_boundary(): void
     {
         $testLocation1 = new TestLocation('', '', 0.124);
         $testLocation2 = new TestLocation('', '', 0.125);
@@ -108,7 +108,7 @@ final class TestLocationBucketSorterTest extends TestCase
      *
      * @param TestLocation[] $uniqueTestLocations
      */
-    public function te1st_it_sorts_correctly(array $uniqueTestLocations): void
+    public function test_it_sorts_correctly(array $uniqueTestLocations): void
     {
         $sortedTestLocations = iterator_to_array(
             TestLocationBucketSorter::bucketSort($uniqueTestLocations),
@@ -128,7 +128,7 @@ final class TestLocationBucketSorterTest extends TestCase
      *
      * @param TestLocation[] $uniqueTestLocations
      */
-    public function te1st_quicksort_sorts_correctly(array $uniqueTestLocations): void
+    public function test_quicksort_sorts_correctly(array $uniqueTestLocations): void
     {
         self::quicksort($uniqueTestLocations);
 
@@ -143,7 +143,7 @@ final class TestLocationBucketSorterTest extends TestCase
      *
      * @param TestLocation[] $uniqueTestLocations
      */
-    public function te1st_it_sorts_faster_than_quicksort(array $uniqueTestLocations): void
+    public function test_it_sorts_faster_than_quicksort(array $uniqueTestLocations): void
     {
         if (extension_loaded('xdebug') || PHP_SAPI === 'phpdbg') {
             $this->markTestSkipped('Benchmarks under xdebug or phpdbg are brittle');

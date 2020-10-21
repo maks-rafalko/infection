@@ -68,7 +68,14 @@ final class CheckstyleLogger implements LineMutationTestingResultsLogger
             $allErrors[$filePath][] = [
                 'line' => $escapedExecutionResult->getOriginalStartingLine(),
                 'severity' => 'warning',
-                'message' => $escapedExecutionResult->getMutantDiff(),
+                'message' => <<<"TEXT"
+Escaped Mutant:
+
+```diff
+{$escapedExecutionResult->getMutantDiff()}
+```
+TEXT
+            ,
                 'source' => $escapedExecutionResult->getMutatorName(),
             ];
         }
