@@ -49,6 +49,7 @@ trait LogsAssertions
         ?string $expectedJsonLogFilePath,
         ?string $expectedDebugLogFilePath,
         ?string $expectedPerMutatorFilePath,
+        ?string $expectedCheckstyleFilePath,
         ?Badge $expectedBadge
     ): void {
         $this->assertSame($expectedTextLogFilePath, $logs->getTextLogFilePath());
@@ -56,6 +57,7 @@ trait LogsAssertions
         $this->assertSame($expectedJsonLogFilePath, $logs->getJsonLogFilePath());
         $this->assertSame($expectedDebugLogFilePath, $logs->getDebugLogFilePath());
         $this->assertSame($expectedPerMutatorFilePath, $logs->getPerMutatorFilePath());
+        $this->assertSame($expectedCheckstyleFilePath, $logs->getCheckstyleFilePath());
 
         $badge = $logs->getBadge();
 
