@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<checkstyle version="6.5">
+  <file name="/home/maksrafalko/apps/infection-fork/src/Config/Guesser/SourceDirGuesser.php">
+    <error severity="warning" line="131" message="Escaped Mutant:&#10;&#10;```diff&#10;--- Original&#10;+++ New&#10;@@ @@&#10;             });&#10;         }&#10;         if (is_string($path)) {&#10;-            $dirs[] = trim($path, DIRECTORY_SEPARATOR);&#10;+            $dirs[] = $path;&#10;         }&#10;     }&#10; }&#10;&#10;```" source="UnwrapTrim"/>
+  </file>
+</checkstyle>
